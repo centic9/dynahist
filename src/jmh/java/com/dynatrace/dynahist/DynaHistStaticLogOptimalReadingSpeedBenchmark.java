@@ -65,8 +65,10 @@ public class DynaHistStaticLogOptimalReadingSpeedBenchmark {
 	@Benchmark
 	@BenchmarkMode(Mode.AverageTime)
 	public void test(Blackhole blackhole) {
-		final double quantile = histogram.getQuantile(ThreadLocalRandom.current().nextDouble(), ValueEstimator.MID_POINT);
+		for (double d : TEST_DATA_DOUBLE[0]) {
+			final double quantile = histogram.getQuantile(d, ValueEstimator.MID_POINT);
 
-		blackhole.consume(quantile);
+			blackhole.consume(quantile);
+		}
 	}
 }
