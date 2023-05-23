@@ -64,7 +64,8 @@ jacocoTestReport { // necessary for sonarcloud coverage
 }
 
 jmh {
-    fork = 1
+	includes = ['.*Reading.*']
+	fork = 1
     timeUnit = 'ms'
     failOnError = false
     timeOnIteration = '1s'
